@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/200fead19d.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../../style/img/favicon.svg">
+    <link rel="stylesheet" href="style/navigation.css">
+    <link rel="stylesheet" href="style/loader.css">
+    <title>Blog</title>
+</head>
+<body>
+
+    <style>
+
+      
+    .hero-text {
+      padding-top: 80px;
+      height: 35vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>img {
+      position: absolute;
+      z-index: -1;
+      height: 35vh;
+      width: 100%;
+      object-fit: cover;
+      background-position: center;
+      filter: brightness(50%);
+  }
+
+  .hero-text>.container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>.container>h1 {
+    font-size: 64px;
+    width: 100%;
+    text-align: center;
+    color: #ECF6FF;
+}
+
+
+.main>.container {
+      width: 80%;
+      padding-top: 5vh;
+      padding-bottom: 5vh;
+}
+
+.main {
+      display: flex;
+      justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+      
+  .hero-text>.container>h1 {
+    font-size: 48px;
+}
+  }
+    </style>
+    
+    
+    <div class="loader">
+        <img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="loaderLogo">
+    </div>
+    
+    <nav>
+    <div class="navContainer">
+        <div class="left">
+            <a href="../../index.html"><img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="navLogo"></a>
+        </div>
+
+        <div class="center">
+            <ul class="pages">
+                <li><a href="products.html">Produse</a></li>
+                <li><a href="aboutUs.html">Despre noi</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacts.html">Contacte</a></li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <a href="../../../index.html"><h3>EN</h3></a>
+            <a href="login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a>
+        </div>
+        <div class="burger-menu" onclick="dropdown()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    </nav>
+
+    <div class="drop-down inactive" id="drop-down">
+            <ul class="drop-down-links">
+                <li><a href="products.html">Products</a></li>
+                <li><a href="aboutUs.html">Despre noi</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacts.html">Contacte</a></li>
+                <li><a href="../../../index.html"><h3>EN</h3></a></li>
+                <li><a href="login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a></li>
+            </ul>
+    </div>
+
+    
+
+    <section class="hero-text">
+
+      
+        <div class="container">
+            <h1 id="blogTitle"></h1>
+        </div>
+        <img id="backgroundImage">
+        
+    </section>
+
+
+    <section class="main">
+      <div class="container">
+            <p id="blogContent"></p>
+      </div>
+    </section>
+
+
+    <footer>
+        <div class="links">
+            <div class="left">
+                <div class="footerLogo">
+                    <a href="../../index.html"><img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="footerLogo"></a>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li><a href="index.html">Acasă</a></li>
+                        <li><a href="products.html">Produse</a></li>
+                        <li><a href="aboutUs.html">Despre noi</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li><a href="contacts.html">Contacte</a></li>
+                        <li><a href="">Termeni și condiții</a></li>
+                        <li><a href="">Politica privată</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="socials">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-xl"style="color: #ECF6FF;"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-xl"style="color: #ECF6FF;"></i></a>
+                    <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube fa-xl"style="color: #ECF6FF;"></i></a>
+                </div>
+                <div class="copyright">
+                    <p>@2023 - stride. Toate drepturile rezervate</p>
+                </div>
+            </div>
+        </div>
+        <div class="label">
+            <p class="romeo">Creat de Romeo.</p>
+        </div>
+    </footer>
+
+    <script src="../../resources/js/responive.js"></script>
+
+    <script>
+
+      let info = JSON.parse(window.localStorage.getItem("dynamicBlog"));
+
+      console.log(info);
+
+      let blogTitle = document.getElementById("blogTitle");
+      let blogContent = document.getElementById("blogContent");
+      let backgroundImage = document.getElementById("backgroundImage");
+
+
+      blogTitle.append(info.title);
+      blogContent.append(info.content);
+      backgroundImage.src = info.image;
+
+        
+    </script>
+</body>
+</html>
